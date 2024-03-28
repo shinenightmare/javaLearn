@@ -1,26 +1,30 @@
 package org.stream;
 
 import java.text.ParseException;
+import java.util.Comparator;
 import java.util.List;
+import java.util.Map;
+import java.util.Optional;
+import java.util.stream.Collectors;
 
 public class Test {
     public static void main(String[] args) throws ParseException {
         List<User> users=TempDataFactory.getUser();
 
-//        System.out.println(users.stream().collect(
-//                Collectors.averagingDouble(User::getAge)
-//        ));
-//        System.out.println(users.stream().collect(Collectors.counting()));
+        System.out.println(users.stream().collect(
+                Collectors.averagingDouble(User::getAge)
+        ));
+        System.out.println(users.stream().collect(Collectors.counting()));
 //        for(User user:collect){
 //            System.out.println(user.getName());
 //        }
-//        System.out.println(
-//                users.stream().collect(
-//                        Collectors.groupingBy(user -> user.getAge(),Collectors.reducing(0,e->1,Integer::sum))
-//                )
-//        );
+        System.out.println(
+                users.stream().collect(
+                        Collectors.groupingBy(user -> user.getAge(),Collectors.reducing(0,e->1,Integer::sum))
+                )
+        );
 
-/*        Map<Integer, Optional<User>> map=users.stream().collect(Collectors.groupingBy(
+        Map<Integer, Optional<User>> map=users.stream().collect(Collectors.groupingBy(
                         User::getAge,
                         Collectors.maxBy(new Comparator<User>() {
                             @Override
@@ -34,7 +38,7 @@ public class Test {
                 ));
         for(Object o:map.keySet()){
             System.out.println(o+":"+map.get(o).get().getName());
-        }*/
+        }
 
 
     }
