@@ -1,0 +1,11 @@
+package org.designPatterns.structuralPattern.facade;
+
+public class Projector {
+    public void turnOn() {
+        System.out.println("Projector is turned on");
+    }
+
+    public void turnOff() {
+        System.out.println("Projector is turned off");
+    }
+}
